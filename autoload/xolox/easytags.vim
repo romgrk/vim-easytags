@@ -81,7 +81,7 @@ function! xolox#easytags#check_ctags_compatible(name, min_version) " {{{2
     let pattern = '\(Exuberant\|Universal\) Ctags \zs\(\d\+\(\.\d\+\)*\|Development\)'
     let g:easytags_ctags_version = matchstr(get(result['stdout'], 0, ''), pattern)
     " Deal with development builds.
-    if g:easytags_ctags_version == 'Development'
+    if g:easytags_ctags_version == 'Development' || g:easytags_ctags_version == '0.0.0'
       call xolox#misc#msg#debug("easytags.vim %s: Assuming development build is compatible ..", g:xolox#easytags#version, a:name)
       return 1
     endif
